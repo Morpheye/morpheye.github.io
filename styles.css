@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
 }
 
-/* Nav bar */
+/* Navigation bar */
 nav {
     background-color: #12141c;
     border-bottom: 2px solid #bfccff;
@@ -42,7 +42,7 @@ nav a:hover {
     color: white;
 }
 
-/* Centre and constrain content */
+/* The box for the entire page's content */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -50,6 +50,19 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+/* Links */
+a {
+    color: #bfccff;
+}
+
+a:visited {
+    color: #9baad9;
+}
+
+a:hover {
+    color: white;
 }
 
 /* Cards */
@@ -61,6 +74,7 @@ nav a:hover {
     padding: 32px;
 }
 
+/* Headers */
 h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -68,6 +82,14 @@ h1 {
     color: #bfccff;
 }
 
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #bfccff;
+    margin-top: 24px;
+}
+
+/* Paragraphs */
 p {
     color: #ccd0e0;
     font-size: 1rem;
