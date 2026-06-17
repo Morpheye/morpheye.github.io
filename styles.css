@@ -110,3 +110,18 @@ p {
     border: 2px solid #bfccff;
     flex-shrink: 0;
 }
+
+/* Code blocks */
+pre {
+    background-color: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #bfccff;
+}
