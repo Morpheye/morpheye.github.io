@@ -4,7 +4,15 @@
         "volatility": 1
     },
     {
-        "text": "The default starting life total is 50",
+        "text": "The default starting life total is 50.",
+        "volatility": 1
+    },
+    {
+        "text": "Each player begins the game with a Treasure token in play under their control.",
+        "volatility": 1
+    },
+    {
+        "text": "Players reveal all cards they find while searching libraries, regardless if the effect says so or not.",
         "volatility": 1
     },
     {
@@ -12,7 +20,19 @@
         "volatility": 2
     },
     {
-        "text": "The default starting life total is 30",
+        "text": "The default starting life total is 30.",
+        "volatility": 2
+    },
+    {
+        "text": "The first spell each player casts each turn costs 1 generic mana less to cast.",
+        "volatility": 2
+    },
+    {
+        "text": "Each player may have the first land they play during each of their turns enter untapped.",
+        "volatility": 2
+    },
+    {
+        "text": "Commander spells cost 1 generic mana less to cast.",
         "volatility": 2
     },
     {
@@ -20,7 +40,47 @@
         "volatility": 3
     },
     {
+        "text": "Players have no default maximum hand size.",
+        "volatility": 3
+    },
+    {
+        "text": "The default maximum hand size is 6.",
+        "volatility": 3
+    },
+    {
+        "text": "Commander spells cost 2 generic mana more to cast.",
+        "volatility": 3
+    },
+    {
+        "text": "Spells costs 1 generic mana more to cast.",
+        "volatility": 3
+    },
+    {
         "text": "Before starting hands are drawn, each player searches the library of the player to their left for up to four cards and exiles them, then shuffles.",
         "volatility": 4
+    },
+    {
+        "text": "The default maximum hand size is 4.",
+        "volatility": 4
+    },
+    {
+        "text": "Players play with their hands revealed.",
+        "volatility": 4
+    },
+    {
+        "text": "Players don't lose mana as steps and phases end.",
+        "volatility": 4
+    },
+    {
+        "text": "Damage isn't removed from permanents during the cleanup step.",
+        "volatility": 5
+    },
+    {
+        "text": "Whenever a player loses life, that player exiles that many cards off the top of their library.",
+        "volatility": 5
+    },
+    {
+        "text": "All spells have flash.",
+        "volatility": 5
     }
 ]
