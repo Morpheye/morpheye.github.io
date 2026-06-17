@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav> <!-- Page Navigation -->
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <div id="navbar"></div>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
 
     <div class="container"> <!-- Main page contents -->
         <div class="card hero">
