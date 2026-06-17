@@ -1,0 +1,120 @@
+.volatility-control {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+ 
+.volatility-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+ 
+.volatility-row label {
+    color: #ccd0e0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+ 
+.volatility-value {
+    color: #bfccff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 1.5em;
+    text-align: right;
+}
+ 
+/* Range slider track */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-out;
+}
+ 
+/* Range slider handle - WebKit/Chrome/Safari */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #bfccff;
+    border: 2px solid #12141c;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+ 
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: white;
+    transform: scale(1.1);
+}
+ 
+/* Range slider handle - Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #bfccff;
+    border: 2px solid #12141c;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+ 
+input[type="range"]::-moz-range-thumb:hover {
+    background: white;
+    transform: scale(1.1);
+}
+ 
+input[type="range"]::-moz-range-track {
+    background: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 4px;
+    height: 4px;
+}
+ 
+/* Generate button */
+#generate-btn {
+    margin-top: 24px;
+    background-color: #bfccff;
+    color: #12141c;
+    border: 2px solid #bfccff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+ 
+#generate-btn:hover {
+    background-color: transparent;
+    color: #bfccff;
+}
+ 
+#generate-btn:active {
+    transform: translateY(1px);
+}
+ 
+/* Rule output text */
+#rule-output {
+    margin-top: 20px;
+    background-color: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+    font-size: 1.05rem;
+}

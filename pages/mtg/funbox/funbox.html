@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <title>Commander Funbox</title>
+    <link rel="icon" type="image/x-icon" href="../../images/icon_bare.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="funbox.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('../navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    
+    <div class="container">
+        <div class="card">
+            <h1>Commander Funbox Generator</h1>
+            <p1>Click below to generate a random additional rule for your Commander game. Additionally, you may
+                set a min and max volatility. Higher volatility will warp your game more!
+            </p1>
+            
+            <div class="volatility-control">
+                <div class="volatility-row">
+                    <label for="volatility-min">Min volatility</label>
+                    <span class="volatility-value" id="min-label">1</span>
+                </div>
+                <input type="range" id="volatility-min" min="1" max="5" value="1" step="0.01">
+            
+                <div class="volatility-row">
+                    <label for="volatility-max">Max volatility</label>
+                    <span class="volatility-value" id="max-label">5</span>
+                </div>
+                <input type="range" id="volatility-max" min="1" max="5" value="5" step="0.01">
+            </div>
+            
+            <button id="generate-btn">Generate Rule</button>
+            
+            <p id="rule-output">Click the button to generate a rule.</p>
+            
+            <script src="commanderRuleFetcher.js"></script>
+            <script>
+                const minSlider = document.getElementById('volatility-min');
+                const maxSlider = document.getElementById('volatility-max');
+                const minLabel = document.getElementById('min-label');
+                const maxLabel = document.getElementById('max-label');
+                const generateBtn = document.getElementById('generate-btn');
+                const ruleOutput = document.getElementById('rule-output');
+            
+                // Keep min slider from going above max slider, and vice versa.
+                minSlider.addEventListener('input', () => {
+                    const minValue = parseFloat(minSlider.value);
+                    const maxValue = parseFloat(maxSlider.value);
+
+                    if (minValue > maxValue) {
+                        minSlider.value = maxSlider.value;
+                    }
+
+                    minLabel.textContent = Math.round(minValue);
+                });
+
+                maxSlider.addEventListener('input', () => {
+                    const minValue = parseFloat(minSlider.value);
+                    const maxValue = parseFloat(maxSlider.value);
+
+                    if (maxValue < minValue) {
+                        maxSlider.value = minSlider.value;
+                    }
+
+                    maxLabel.textContent = Math.round(maxValue);
+                });
+            
+                generateBtn.addEventListener('click', async () => {
+                    const min = Math.round(parseFloat(minSlider.value));
+                    const max = Math.round(parseFloat(maxSlider.value));
+
+                    ruleOutput.textContent = 'Generating...';
+
+                    const rule = await getRandomRule({ min, max });
+                    ruleOutput.textContent = rule.text;
+                });
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>

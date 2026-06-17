@@ -1,0 +1,26 @@
+[
+    {
+        "text": "The default maximum hand size is 8.",
+        "volatility": 1
+    },
+    {
+        "text": "The default starting life total is 50",
+        "volatility": 1
+    },
+    {
+        "text": "At the beginning of the first upkeep, each player scries X, where X is their position in turn order minus 1.",
+        "volatility": 2
+    },
+    {
+        "text": "The default starting life total is 30",
+        "volatility": 2
+    },
+    {
+        "text": "The default starting life total is 60.",
+        "volatility": 3
+    },
+    {
+        "text": "Before starting hands are drawn, each player searches the library of the player to their left for up to four cards and exiles them, then shuffles.",
+        "volatility": 4
+    }
+]

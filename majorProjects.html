@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <title>Nathan's Major Projects</title>
+    <link rel="icon" type="image/x-icon" href="images/icon_bare.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    
+    <div class="container">
+        <div class="card"> <!-- Skycubed -->
+            <h1>Skycubed Platformer</h1>
+            <div class="hero">
+                <img src="images/skycubed.png" alt="Skycubed Platformer Icon">
+                <div>
+                    <p>
+                        This is what I consider as my first standalone project, as it successfully bridged the gap from
+                        "Java Beginner" to "Object Oriented Programmer". Skycubed Platformer is a platformer game
+                        I challenged myself to program effectively from scratch, using nothing but the default Java libraries.
+                        I only ended up finishing eight levels of the game before I got too busy with HSC exams, but I am
+                        nonetheless proud of what I've learned from it.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p>
+                    The source code and assets of this game are open-source, and can be located at its Github repository 
+                    <a href="https://github.com/Morpheye/SkyCubed-Platformer">Skycubed Github Repo</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h1>The Cyv Project</h1> <!-- Cyv -->
+            <div class="hero">
+                <img src="images/icon.png" alt="Cyv Logo">
+                <div>
+                    <p>
+                        My love for Minecraft truly runs deep, but particularly technical Minecraft parkour and movement physics.
+                        When I initially dove into Minecraft Parkour, the client-sided utilities were quite limited. This lead to me
+                        first creating <a href="https://github.com/Morpheye/SkyCubed-Platformer">MorphMPK</a> as a client-sided mod
+                        adding additional, basic utilities to assist in movement and aid in calculation. While primitive and very much
+                        outdated, MorphMPK was the precursor for something so much larger.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h2>CyvClient</h2>
+                <p>
+                    Jumping from creating a simple 1.8.9 Forge mod to a full-scale Minecraft Client was immense, but six months of continuous
+                    effort allowed CyvClient to be born. This client combines the many features of
+                    <a href="https://www.curseforge.com/minecraft/mc-mods/mpkmod">MPKMod</a> with many open-source optimization and utility
+                    features beloved by veteran Minecraft players for a slick, streamlined parkour experience.
+                </p>
+                <p>
+                    Ultimately, standalone clients are incredibly hard to sustain, and one for something as focused and narrow as Minecraft Parkour
+                    is better as just a mod, for the sake of user simplicity. While I no longer maintain CyvClient, it still sees hundreds
+                    of users daily. The JAR download is located <a href="https://github.com/Morpheye/CyvClient">here</a>. I unfortunately cannot
+                    provide public source code due to Minecraft's Terms of Service.
+                </p>
+            </div>
+            <div>
+                <h2>CyvForge & CyvFabric</h2>
+                <p>
+                    CyvForge and CyvFabric are ports of CyvClient's parkour features to the Forge 1.8 and Fabric 1.20+ modloaders respectively.
+                    They are effectively modernized versions of MPKMod, with more robust features and many more utilities. These projects are maintained
+                    by myself and two other volunteer developers from the Minecraft Parkour community.
+                </p>
+                <p>
+                    <!-- Accessibility /-->
+                    Modrinth page: <a href="https://modrinth.com/mod/cyv">Modrinth Link</a>
+                    <br>
+                    CyvForge source code: <a href="https://github.com/Morpheye/CyvForge">Cyvforge Github Repo</a>
+                    <br>
+                    CyvFabric source code: <a href="https://github.com/Morpheye/CyvFabric">CyvFabric Github Repo</a>
+                    <br>
+                    Cyv community Discord: <a href="https://discord.gg/a9qQZdVGZx">Cyv Discord</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card"> <!-- HPK -->
+            <h1>HPK</h1>
+            <div class="hero">
+                <img src="images/hpk.png" alt="HPK Network Logo">
+                <div>
+                    <p>
+                        The HPK Network Minecraft Server is the premier network for multiplayer Minecraft Parkour play.
+                        After the original owner and creator abandoned the project, I voluntarily took on the responsibility
+                        of updating and maintaining the core server plugin, and continue to do so to this day, albeit together with
+                        two other developers.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p>
+                    HPK community Discord: <a href="https://discord.gg/3QeAhp6pJe">Discord Invite Link</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

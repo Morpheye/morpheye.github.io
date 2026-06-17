@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <title>Nathan's Minor Projects</title>
+    <link rel="icon" type="image/x-icon" href="images/icon_bare.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    
+    <div class="container">
+        <div class="card">
+            <h1>MTG Code Creations</h1>
+            <a href="pages/mtg/funbox/funbox.html" class="button">Commander Funbox</a>
+        </div>
+    </div>
+
+</body>
+</html>
