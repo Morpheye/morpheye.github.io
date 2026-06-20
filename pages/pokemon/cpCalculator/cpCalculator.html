@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <title>Pokemon GO Calculator</title>
+    <link rel="icon" type="image/x-icon" href="../../../images/icon_bare.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('../navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+    
+    <div class="container">
+        <!-- Pokemon and IV selector -->
+        <div class="card">
+            <h1>Select a Pokemon</h1>
+            <p1>Select a Pokemon from the list below and choose its IVs.
+            </p1>
+            <br>
+
+            <!-- Pokemon Selector (custom combobox) -->
+            <div class="combobox">
+                <input
+                    id="pokemon-search"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Loading Pokémon…"
+                    disabled
+                >
+                <ul class="combobox-list" id="pokemon-combobox-list"></ul>
+            </div>
+            
+            <!-- IV selector -->
+            <div class="slider">
+                <div class="slider-row">
+                    <label for="iv-attack">Attack IV</label>
+                    <span class="value" id="attack-label">0</span>
+                </div>
+                <input type="range" id="iv-attack" min="0" max="15" value="0" step="0.01">
+            
+                <div class="slider-row">
+                    <label for="iv-defense">Defense IV</label>
+                    <span class="value" id="defense-label">0</span>
+                </div>
+                <input type="range" id="iv-defense" min="0" max="15" value="0" step="0.01">
+
+                <div class="slider-row">
+                    <label for="iv-stamina">Stamina IV</label>
+                    <span class="value" id="stamina-label">0</span>
+                </div>
+                <input type="range" id="iv-stamina" min="0" max="15" value="0" step="0.01">
+            </div>
+            
+            <button id="calculate-btn">Calculate!</button>
+        </div>
+
+        <!-- Level selector and output -->
+        <div class="card">
+            <div class="slider">
+                <div class="slider-row">
+                    <label for="level">Level</label>
+                    <span class="value" id="level-value">15</span>
+                </div>
+                <input type="range" id="level" min="1" max="51" value="15" step="0.01">
+            </div>
+            <br>
+            <p1 id="cp-display">Select a pokemon to calculate combat power.</p1>
+        </div>
+
+        <script src="calculator.js"></script>
+        <script src="combobox.js"></script>
+        <script>
+            const pokemonSearchInput = document.getElementById('pokemon-search');
+ 
+            populatePokemonList().then(pokemonNames => {
+                initPokemonCombobox(pokemonNames);
+                pokemonSearchInput.disabled = false;
+                pokemonSearchInput.placeholder = "Search Pokémon...";
+            });
+ 
+            const atkSlider = document.getElementById('iv-attack');
+            const defSlider = document.getElementById('iv-defense');
+            const hpSlider = document.getElementById('iv-stamina');
+            const levelSlider = document.getElementById('level');
+            const atkLabel = document.getElementById('attack-label');
+            const defLabel = document.getElementById('defense-label');
+            const hpLabel = document.getElementById('stamina-label');
+            const levelLabel = document.getElementById('level-value');
+            const calculateButton = document.getElementById('calculate-btn');
+ 
+            const cpDisplay = document.getElementById('cp-display');
+ 
+            let lastPokemon = null;
+ 
+            async function updateData() {
+                const levelString = (Math.round(parseFloat(levelLabel.textContent) * 10) / 10).toString();
+                const data = await calculate(lastPokemon.attack, lastPokemon.defense,
+                    lastPokemon.stamina, levelString);
+                cpDisplay.innerHTML = "CP: " + data.cp + "<br>" +
+                    "Attack: " + data.attack.toFixed(2) + "<br>" +
+                    "Defense: " + data.defense.toFixed(2) + "<br>" +
+                    "Stamina: " + Math.max(10, Math.floor(data.stamina));
+            };
+ 
+            async function resetData() {
+                cpDisplay.textContent = "Select a pokemon to calculate combat power.";
+            }
+        
+            atkSlider.addEventListener('input', () => {
+                const val = parseFloat(atkSlider.value);
+                atkLabel.textContent = Math.round(val);
+            });
+ 
+            defSlider.addEventListener('input', () => {
+                const val = parseFloat(defSlider.value);
+                defLabel.textContent = Math.round(val);
+            });
+ 
+            hpSlider.addEventListener('input', () => {
+                const val = parseFloat(hpSlider.value);
+                hpLabel.textContent = Math.round(val);
+            });
+ 
+            levelSlider.addEventListener('input', async () => {
+                const val = Math.round(parseFloat(levelSlider.value) * 2) / 2;
+                levelLabel.textContent = val.toFixed(1);
+ 
+                if (lastPokemon == null) return;
+                updateData();
+            });
+ 
+            calculateButton.addEventListener('click', async () => {
+                const selection = document.getElementById("pokemon-search").value;
+ 
+                const {pokemonName, form} = parsePokemonSelection(selection);
+ 
+                try {
+                    lastPokemon = await getStats(pokemonName, form,
+                                        atkLabel.textContent, defLabel.textContent,
+                                        hpLabel.textContent);
+                    updateData();
+                } catch {
+                    resetData();
+                }
+                
+            });
+        </script>
+    </div>
+
+</body>
+</html>

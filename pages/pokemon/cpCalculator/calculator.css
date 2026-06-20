@@ -1,0 +1,236 @@
+.slider {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+ 
+.slider-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+ 
+.slider-row label {
+    color: #ccd0e0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+ 
+.value {
+    color: #bfccff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 1.5em;
+    text-align: right;
+}
+ 
+/* Range slider track */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-out;
+}
+ 
+/* Range slider handle - WebKit/Chrome/Safari */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #bfccff;
+    border: 2px solid #12141c;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+ 
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: white;
+    transform: scale(1.1);
+}
+ 
+/* Range slider handle - Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #bfccff;
+    border: 2px solid #12141c;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+ 
+input[type="range"]::-moz-range-thumb:hover {
+    background: white;
+    transform: scale(1.1);
+}
+ 
+input[type="range"]::-moz-range-track {
+    background: #1e2030;
+    border: 1px solid #bfccff;
+    border-radius: 4px;
+    height: 4px;
+}
+ 
+/* Generate button */
+#calculate-btn {
+    margin-top: 24px;
+    background-color: #bfccff;
+    color: #12141c;
+    border: 2px solid #bfccff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+ 
+#calculate-btn:hover {
+    background-color: transparent;
+    color: #bfccff;
+}
+ 
+#calculate-btn:active {
+    transform: translateY(1px);
+}
+
+/* FANCY DROPDOWN */
+
+.combobox {
+    position: relative;
+    width: 100%;
+}
+ 
+#pokemon-search {
+    width: 100%;
+    background-color: #1e2030;
+    color: white;
+    border: 2px solid #bfccff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+ 
+#pokemon-search::placeholder {
+    color: #9baad9;
+    font-weight: 400;
+}
+ 
+#pokemon-search:hover {
+    border-color: white;
+}
+ 
+#pokemon-search:focus {
+    border-color: white;
+    background-color: #12141c;
+}
+ 
+#pokemon-search:disabled {
+    border-color: #1e2030;
+    color: #9baad9;
+    cursor: not-allowed;
+}
+ 
+#pokemon-search:disabled::placeholder {
+    color: #9baad9;
+}
+ 
+/* Dropdown panel */
+.combobox-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 10;
+ 
+    max-height: 280px;
+    overflow-y: auto;
+ 
+    background-color: #1e2030;
+    border: 2px solid #bfccff;
+    border-radius: 8px;
+    padding: 6px;
+ 
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+ 
+    list-style: none;
+}
+ 
+.combobox-list:empty {
+    display: none;
+}
+ 
+/* Thin, on-brand scrollbar for the dropdown */
+.combobox-list::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+.combobox-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.combobox-list::-webkit-scrollbar-thumb {
+    background-color: #12141c;
+    border: 1px solid #bfccff;
+    border-radius: 4px;
+}
+ 
+.combobox-option {
+    flex-shrink: 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #ccd0e0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s ease, color 0.1s ease;
+ 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+ 
+.combobox-option mark {
+    background: none;
+    color: white;
+    font-weight: 700;
+}
+ 
+.combobox-option:hover,
+.combobox-option.is-active {
+    background-color: #bfccff;
+    color: #12141c;
+}
+ 
+.combobox-option:hover mark,
+.combobox-option.is-active mark {
+    color: #12141c;
+}
+ 
+.combobox-empty {
+    flex-shrink: 0;
+    padding: 10px 12px;
+    color: #9baad9;
+    font-size: 0.9rem;
+    font-style: italic;
+}
