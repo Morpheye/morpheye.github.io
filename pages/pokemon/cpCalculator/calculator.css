@@ -32,7 +32,7 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 4px;
+    height: 12px;
     background: #1e2030;
     border: 1px solid #bfccff;
     border-radius: 4px;
@@ -46,8 +46,8 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #bfccff;
     border: 2px solid #12141c;
@@ -62,8 +62,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
  
 /* Range slider handle - Firefox */
 input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #bfccff;
     border: 2px solid #12141c;
