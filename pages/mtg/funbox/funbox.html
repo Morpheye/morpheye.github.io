@@ -61,7 +61,7 @@
                         minSlider.value = maxSlider.value;
                     }
 
-                    minLabel.textContent = Math.round(minValue);
+                    minLabel.textContent = Math.round(minSlider.value);
                 });
 
                 maxSlider.addEventListener('input', () => {
@@ -72,7 +72,7 @@
                         maxSlider.value = minSlider.value;
                     }
 
-                    maxLabel.textContent = Math.round(maxValue);
+                    maxLabel.textContent = Math.round(maxSlider.value);
                 });
             
                 generateBtn.addEventListener('click', async () => {
