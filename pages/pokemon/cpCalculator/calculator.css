@@ -236,7 +236,7 @@ input[type="range"]::-moz-range-track {
 }
 
 @media (max-width: 600px) {
-    .card p1 {
+    .card #select-text {
         display: none
     }
 
