@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../styles.css">
     <link rel="stylesheet" href="calculator.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="navbar"></div>
@@ -116,19 +117,40 @@
                 cpDisplay.textContent = "Select a pokemon to calculate combat power.";
             }
         
-            atkSlider.addEventListener('input', () => {
+            atkSlider.addEventListener('input', async () => {
                 const val = parseFloat(atkSlider.value);
                 atkLabel.textContent = Math.round(val);
+
+                if (lastPokemon != null) {
+                    lastPokemon = await getStats(lastPokemon.name, lastPokemon.form,
+                                        atkLabel.textContent, defLabel.textContent,
+                                        hpLabel.textContent);
+                    updateData();
+                }
             });
  
-            defSlider.addEventListener('input', () => {
+            defSlider.addEventListener('input', async () => {
                 const val = parseFloat(defSlider.value);
                 defLabel.textContent = Math.round(val);
+
+                if (lastPokemon != null) {
+                    lastPokemon = await getStats(lastPokemon.name, lastPokemon.form,
+                                        atkLabel.textContent, defLabel.textContent,
+                                        hpLabel.textContent);
+                    updateData();
+                }
             });
  
-            hpSlider.addEventListener('input', () => {
+            hpSlider.addEventListener('input', async () => {
                 const val = parseFloat(hpSlider.value);
                 hpLabel.textContent = Math.round(val);
+
+                if (lastPokemon != null) {
+                    lastPokemon = await getStats(lastPokemon.name, lastPokemon.form,
+                                        atkLabel.textContent, defLabel.textContent,
+                                        hpLabel.textContent);
+                    updateData();
+                }
             });
  
             levelSlider.addEventListener('input', async () => {

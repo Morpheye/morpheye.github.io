@@ -158,6 +158,8 @@ async function getStats(pokemonName, form, attackIV, defenseIV, staminaIV) {
     );
 
     return {
+        name: pokemonName,
+        form: form,
         attack: pokemon.base_attack + Number(attackIV),
         defense: pokemon.base_defense + Number(defenseIV),
         stamina: pokemon.base_stamina + Number(staminaIV)
